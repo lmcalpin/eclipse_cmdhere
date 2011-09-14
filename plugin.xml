@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+    <extension point="org.eclipse.ui.menus">
+        <menuContribution locationURI="popup:org.eclipse.jdt.ui.PackageExplorer">
+            <command commandId="org.metatrope.cmdhere.popup.actions.open"
+                label="Open command window here..." style="push">
+                <visibleWhen>
+                    <and>
+                        <reference definitionId="expression.onlyOneItemSelected" />
+                        <reference definitionId="expression.packageOrSourceFileSelected" />
+                    </and>
+                </visibleWhen>
+            </command>
+        </menuContribution>
+        <menuContribution
+            locationURI="popup:org.eclipse.ui.navigator.ProjectExplorer#PopupMenu?after=additions">
+            <command commandId="org.metatrope.cmdhere.popup.actions.open"
+                label="Open command window here..." style="push">
+                <visibleWhen>
+                    <and>
+                        <reference definitionId="expression.onlyOneItemSelected" />
+                        <reference definitionId="expression.packageOrSourceFileSelected" />
+                    </and>
+                </visibleWhen>
+            </command>
+        </menuContribution>
+    </extension>
+    <extension point="org.eclipse.ui.commands">
+        <command defaultHandler="org.metatrope.cmdhere.popup.actions.OpenShellAction"
+            id="org.metatrope.cmdhere.popup.actions.open" name="Open">
+        </command>
+    </extension>
+    <extension point="org.eclipse.core.expressions.definitions">
+        <definition id="expression.onlyOneItemSelected">
+            <with variable="activeMenuSelection">
+                <count value="1">
+                </count>
+            </with>
+        </definition>
+        <definition id="expression.packageOrSourceFileSelected">
+            <with variable="activeMenuSelection">
+                <iterate>
+                    <or>
+                        <adapt type="org.eclipse.jdt.core.ICompilationUnit"></adapt>
+                        <adapt type="org.eclipse.jdt.core.IPackageFragment"></adapt>
+                        <adapt type="org.eclipse.jdt.core.IJavaProject"></adapt>
+                    </or>
+                </iterate>
+            </with>
+        </definition>
+    </extension>
+</plugin>

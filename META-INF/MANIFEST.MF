@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ShellLauncher
+Bundle-SymbolicName: org.metatrope.eclipse.cmdhere;singleton:=true
+Bundle-Version: 1.0.0.0
+Bundle-Activator: org.metatrope.cmdhere.Activator
+Bundle-Vendor: Lawrence McAlpin
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.jdt.core;bundle-version="3.7.0",
+ org.eclipse.core.resources;bundle-version="3.7.100",
+ org.eclipse.core.expressions;bundle-version="3.4.300"
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-ActivationPolicy: lazy

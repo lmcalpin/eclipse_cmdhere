@@ -1,0 +1,18 @@
+h1. eclipse_cmdhere
+
+eclipse_cmdhere adds a "Open Command window here..." menu option when you select
+a single project, package, or source file.  The command prompt will open in the 
+directory of a selected project or package, or the directory containing a selected 
+source file.
+
+h2. Installation
+
+Build the jar and put it in your Eclipse dropins folder.
+
+h2. Limitations
+
+I wrote this for my own personal use, and so it has only been tested on Eclipse 3.7.
+
+It only works for Windows; "cmd.exe" is hard-coded. If you would like to
+change that, submit a pull request with a patch.
+
