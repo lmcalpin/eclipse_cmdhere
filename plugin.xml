@@ -3,8 +3,8 @@
 <plugin>
     <extension point="org.eclipse.ui.menus">
         <menuContribution locationURI="popup:org.eclipse.jdt.ui.PackageExplorer">
-            <command commandId="org.metatrope.cmdhere.popup.actions.open"
-                label="Open command window here..." style="push">
+            <command commandId="org.metatrope.cmdhere.popup.actions.openExplorer"
+                label="Open Explorer window here..." style="push">
                 <visibleWhen>
                     <and>
                         <reference definitionId="expression.onlyOneItemSelected" />
@@ -15,8 +15,31 @@
         </menuContribution>
         <menuContribution
             locationURI="popup:org.eclipse.ui.navigator.ProjectExplorer#PopupMenu?after=additions">
-            <command commandId="org.metatrope.cmdhere.popup.actions.open"
-                label="Open command window here..." style="push">
+            <command commandId="org.metatrope.cmdhere.popup.actions.openExplorer"
+                label="Open Explorer window here..." style="push">
+                <visibleWhen>
+                    <and>
+                        <reference definitionId="expression.onlyOneItemSelected" />
+                        <reference definitionId="expression.packageOrSourceFileSelected" />
+                    </and>
+                </visibleWhen>
+            </command>
+        </menuContribution>
+        <menuContribution locationURI="popup:org.eclipse.jdt.ui.PackageExplorer">
+            <command commandId="org.metatrope.cmdhere.popup.actions.openCmd"
+                label="Open Cmd window here..." style="push">
+                <visibleWhen>
+                    <and>
+                        <reference definitionId="expression.onlyOneItemSelected" />
+                        <reference definitionId="expression.packageOrSourceFileSelected" />
+                    </and>
+                </visibleWhen>
+            </command>
+        </menuContribution>
+        <menuContribution
+            locationURI="popup:org.eclipse.ui.navigator.ProjectExplorer#PopupMenu?after=additions">
+            <command commandId="org.metatrope.cmdhere.popup.actions.openCmd"
+                label="Open Cmd window here..." style="push">
                 <visibleWhen>
                     <and>
                         <reference definitionId="expression.onlyOneItemSelected" />
@@ -28,7 +51,10 @@
     </extension>
     <extension point="org.eclipse.ui.commands">
         <command defaultHandler="org.metatrope.cmdhere.popup.actions.OpenShellAction"
-            id="org.metatrope.cmdhere.popup.actions.open" name="Open">
+            id="org.metatrope.cmdhere.popup.actions.openCmd" name="Open">
+        </command>
+        <command defaultHandler="org.metatrope.cmdhere.popup.actions.OpenExplorerAction"
+            id="org.metatrope.cmdhere.popup.actions.openExplorer" name="Open">
         </command>
     </extension>
     <extension point="org.eclipse.core.expressions.definitions">
