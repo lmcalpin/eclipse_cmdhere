@@ -3,50 +3,49 @@
 <plugin>
     <extension point="org.eclipse.ui.menus">
         <menuContribution locationURI="popup:org.eclipse.jdt.ui.PackageExplorer">
-            <command commandId="org.metatrope.cmdhere.popup.actions.openExplorer"
-                label="Open Explorer window here..." style="push">
-                <visibleWhen>
-                    <and>
-                        <reference definitionId="expression.onlyOneItemSelected" />
-                        <reference definitionId="expression.packageOrSourceFileSelected" />
-                    </and>
-                </visibleWhen>
-            </command>
+            <menu id="packageOpenMenu" label="Goto">
+                <command commandId="org.metatrope.cmdhere.popup.actions.openCmd"
+                    label="cmd.exe here" style="push">
+                    <visibleWhen>
+                        <and>
+                            <reference definitionId="expression.onlyOneItemSelected" />
+                            <reference definitionId="expression.packageOrSourceFileSelected" />
+                        </and>
+                    </visibleWhen>
+                </command>
+                <command commandId="org.metatrope.cmdhere.popup.actions.openExplorer"
+                    label="explorer.exe here" style="push">
+                    <visibleWhen>
+                        <and>
+                            <reference definitionId="expression.onlyOneItemSelected" />
+                            <reference definitionId="expression.packageOrSourceFileSelected" />
+                        </and>
+                    </visibleWhen>
+                </command>
+            </menu>
         </menuContribution>
         <menuContribution
             locationURI="popup:org.eclipse.ui.navigator.ProjectExplorer#PopupMenu?after=additions">
-            <command commandId="org.metatrope.cmdhere.popup.actions.openExplorer"
-                label="Open Explorer window here..." style="push">
-                <visibleWhen>
-                    <and>
-                        <reference definitionId="expression.onlyOneItemSelected" />
-                        <reference definitionId="expression.packageOrSourceFileSelected" />
-                    </and>
-                </visibleWhen>
-            </command>
-        </menuContribution>
-        <menuContribution locationURI="popup:org.eclipse.jdt.ui.PackageExplorer">
-            <command commandId="org.metatrope.cmdhere.popup.actions.openCmd"
-                label="Open Cmd window here..." style="push">
-                <visibleWhen>
-                    <and>
-                        <reference definitionId="expression.onlyOneItemSelected" />
-                        <reference definitionId="expression.packageOrSourceFileSelected" />
-                    </and>
-                </visibleWhen>
-            </command>
-        </menuContribution>
-        <menuContribution
-            locationURI="popup:org.eclipse.ui.navigator.ProjectExplorer#PopupMenu?after=additions">
-            <command commandId="org.metatrope.cmdhere.popup.actions.openCmd"
-                label="Open Cmd window here..." style="push">
-                <visibleWhen>
-                    <and>
-                        <reference definitionId="expression.onlyOneItemSelected" />
-                        <reference definitionId="expression.packageOrSourceFileSelected" />
-                    </and>
-                </visibleWhen>
-            </command>
+            <menu id="projectOpenMenu" label="Goto">
+                <command commandId="org.metatrope.cmdhere.popup.actions.openCmd"
+                    label="cmd.exe here" style="push">
+                    <visibleWhen>
+                        <and>
+                            <reference definitionId="expression.onlyOneItemSelected" />
+                            <reference definitionId="expression.packageOrSourceFileSelected" />
+                        </and>
+                    </visibleWhen>
+                </command>
+                <command commandId="org.metatrope.cmdhere.popup.actions.openExplorer"
+                    label="explorer.exe here" style="push">
+                    <visibleWhen>
+                        <and>
+                            <reference definitionId="expression.onlyOneItemSelected" />
+                            <reference definitionId="expression.packageOrSourceFileSelected" />
+                        </and>
+                    </visibleWhen>
+                </command>
+            </menu>
         </menuContribution>
     </extension>
     <extension point="org.eclipse.ui.commands">
@@ -70,7 +69,8 @@
                     <or>
                         <adapt type="org.eclipse.jdt.core.ICompilationUnit"></adapt>
                         <adapt type="org.eclipse.jdt.core.IPackageFragment"></adapt>
-                        <adapt type="org.eclipse.jdt.core.IJavaProject"></adapt>
+                        <adapt type="org.eclipse.core.resources.IProject"></adapt>
+                        <adapt type="org.eclipse.core.resources.IFile"></adapt>
                     </or>
                 </iterate>
             </with>
