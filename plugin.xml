@@ -26,7 +26,7 @@
         </menuContribution>
         <menuContribution
             locationURI="popup:org.eclipse.ui.navigator.ProjectExplorer#PopupMenu?after=additions">
-            <menu id="projectOpenMenu" label="Goto">
+            <menu id="projectOpenMenu" label="Shell">
                 <command commandId="org.metatrope.cmdhere.popup.actions.openCmd"
                     label="cmd.exe here" style="push">
                     <visibleWhen>
@@ -71,6 +71,7 @@
                         <adapt type="org.eclipse.jdt.core.IPackageFragment"></adapt>
                         <adapt type="org.eclipse.core.resources.IProject"></adapt>
                         <adapt type="org.eclipse.core.resources.IFile"></adapt>
+                        <adapt type="org.eclipse.core.resources.IResource"></adapt>
                     </or>
                 </iterate>
             </with>
