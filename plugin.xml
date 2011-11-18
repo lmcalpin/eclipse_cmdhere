@@ -3,7 +3,7 @@
 <plugin>
     <extension point="org.eclipse.ui.menus">
         <menuContribution locationURI="popup:org.eclipse.jdt.ui.PackageExplorer">
-            <menu id="packageOpenMenu" label="Goto">
+            <menu id="packageOpenMenu" label="Shell">
                 <command commandId="org.metatrope.cmdhere.popup.actions.openCmd"
                     label="cmd.exe here" style="push">
                     <visibleWhen>
