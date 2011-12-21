@@ -5,7 +5,7 @@
         <menuContribution locationURI="popup:org.eclipse.jdt.ui.PackageExplorer">
             <menu id="packageOpenMenu" label="Shell">
                 <command commandId="org.metatrope.cmdhere.popup.actions.openCmd"
-                    label="cmd.exe here" style="push">
+                    label="Command Shell Here" style="push">
                     <visibleWhen>
                         <and>
                             <reference definitionId="expression.onlyOneItemSelected" />
@@ -14,7 +14,7 @@
                     </visibleWhen>
                 </command>
                 <command commandId="org.metatrope.cmdhere.popup.actions.openExplorer"
-                    label="explorer.exe here" style="push">
+                    label="Explorer/Finder Here" style="push">
                     <visibleWhen>
                         <and>
                             <reference definitionId="expression.onlyOneItemSelected" />
@@ -28,7 +28,7 @@
             locationURI="popup:org.eclipse.ui.navigator.ProjectExplorer#PopupMenu?after=additions">
             <menu id="projectOpenMenu" label="Shell">
                 <command commandId="org.metatrope.cmdhere.popup.actions.openCmd"
-                    label="cmd.exe here" style="push">
+                    label="Command Shell Here" style="push">
                     <visibleWhen>
                         <and>
                             <reference definitionId="expression.onlyOneItemSelected" />
@@ -37,7 +37,7 @@
                     </visibleWhen>
                 </command>
                 <command commandId="org.metatrope.cmdhere.popup.actions.openExplorer"
-                    label="explorer.exe here" style="push">
+                    label="Explorer/Finder Here" style="push">
                     <visibleWhen>
                         <and>
                             <reference definitionId="expression.onlyOneItemSelected" />

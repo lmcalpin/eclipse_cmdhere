@@ -1,7 +1,10 @@
 package org.metatrope.cmdhere.popup.actions;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
 
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
@@ -18,7 +21,7 @@ import org.eclipse.ui.handlers.HandlerUtil;
 
 public abstract class CommandExecutingAction extends AbstractHandler {
     /**
-     * Constructor for Action1.
+     * Constructor
      */
     public CommandExecutingAction() {
         super();
@@ -54,15 +57,17 @@ public abstract class CommandExecutingAction extends AbstractHandler {
     private void launchProgram(IPath path) {
         Runtime run = Runtime.getRuntime();
         String fullPath = findDirectoryFor(path);
-        String cmd = getCommand(fullPath);
+		if (fullPath == null)
+			fullPath = ".";
+        String[] cmd = getCommand(fullPath);
         try {
-            run.exec(cmd.toString());
+            run.exec(cmd, null, new File(fullPath));
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
     
-    public abstract String getCommand(String path);
+    public abstract String[] getCommand(String path);
 
     /**
      * @param path where a given resource is located
@@ -78,5 +83,18 @@ public abstract class CommandExecutingAction extends AbstractHandler {
             fullPath = file.getParent();
         }
         return fullPath;
+    }
+    
+    private String getOS() {
+    	String osName = System.getProperty("os.name").toLowerCase();
+    	return osName;
+    }
+    
+    protected boolean isWindows() {
+    	return getOS().indexOf("win") >= 0;
+    }
+    
+    protected boolean isMacOSX() {
+    	return getOS().indexOf("mac") >= 0;
     }
 }
