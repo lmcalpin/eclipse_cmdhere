@@ -13,6 +13,3 @@ h2. Limitations
 
 I wrote this for my own personal use, and so it has only been tested on Eclipse 3.7.
 
-It only works for Windows; the shell name is hard-coded. If you would like to
-change that, submit a pull request with a patch.
-
