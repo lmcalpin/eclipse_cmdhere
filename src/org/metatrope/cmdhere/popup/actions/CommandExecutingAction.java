@@ -6,10 +6,12 @@ import java.io.IOException;
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
+import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.dltk.core.IScriptProject;
 import org.eclipse.jdt.core.ICompilationUnit;
+import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.IPackageFragment;
 import org.eclipse.jdt.core.IPackageFragmentRoot;
 import org.eclipse.jdt.core.IType;
@@ -42,6 +44,12 @@ public abstract class CommandExecutingAction extends AbstractHandler {
         } else if (firstElement instanceof IType) {
             IType cu = (IType) firstElement;
             launchProgram(cu.getResource().getLocation());
+        } else if (firstElement instanceof IJavaProject) {
+            IJavaProject cu = (IJavaProject) firstElement;
+            launchProgram(cu.getResource().getLocation());
+        } else if (firstElement instanceof IProject) {
+            IProject cu = (IProject) firstElement;
+            launchProgram(cu.getLocation());
         } else if (firstElement instanceof IScriptProject) {
             IScriptProject cu = (IScriptProject) firstElement;
             launchProgram(cu.getResource().getLocation());
