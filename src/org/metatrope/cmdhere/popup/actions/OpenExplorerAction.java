@@ -15,6 +15,8 @@ public class OpenExplorerAction extends CommandExecutingAction {
             return new String[] { "explorer.exe", fullPath};
         } else if (isMacOSX()) {
             return new String[] { "/usr/bin/open", fullPath};
+        } else if (isLinux()) {
+            return new String[] { "nautilus", fullPath};
         } else {
         	throw new UnsupportedOSException();
         }
