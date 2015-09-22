@@ -103,4 +103,8 @@ public abstract class CommandExecutingAction extends AbstractHandler {
     protected boolean isMacOSX() {
     	return getOS().indexOf("mac") >= 0;
     }
+
+    protected boolean isLinux() {
+        return getOS().indexOf("linux") >= 0;
+    }
 }

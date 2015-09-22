@@ -15,6 +15,8 @@ public class OpenShellAction extends CommandExecutingAction {
 			return new String[]{"cmd.exe", "/c", "start", "cmd.exe"};
 		} else if (isMacOSX()) {
 			return new String[] {"/usr/bin/open", "-a", "Terminal.app", fullPath};
+        } else if (isLinux()) {
+            return new String[] {"gnome-terminal", "-e", "bash", "--working-directory", fullPath};
 		} else {
 			throw new UnsupportedOSException();
 		}
