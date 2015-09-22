@@ -10,6 +10,7 @@ public class OpenExplorerAction extends CommandExecutingAction {
         super();
     }
 
+    @Override
     public String[] getCommand(String fullPath) {
         if (isWindows()) {
             return new String[] { "explorer.exe", fullPath};

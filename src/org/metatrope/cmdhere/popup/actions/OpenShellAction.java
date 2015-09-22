@@ -9,7 +9,8 @@ public class OpenShellAction extends CommandExecutingAction {
 		super();
 	}
 
-	public String[] getCommand(String fullPath) {
+	@Override
+    public String[] getCommand(String fullPath) {
 		if (isWindows()) {
 			return new String[]{"cmd.exe", "/c", "start", "cmd.exe"};
 		} else if (isMacOSX()) {

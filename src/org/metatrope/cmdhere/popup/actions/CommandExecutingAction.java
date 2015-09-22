@@ -26,6 +26,7 @@ public abstract class CommandExecutingAction extends AbstractHandler {
         super();
     }
 
+    @Override
     public Object execute(ExecutionEvent event) throws ExecutionException {
         IStructuredSelection selection = (IStructuredSelection) HandlerUtil.getActiveMenuSelection(event);
         Object firstElement = selection.getFirstElement();
